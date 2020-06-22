@@ -53,7 +53,7 @@ const codes = () => {
     {id: 781, description: 'Tornado'},
     {id: 800, description: 'Cielo limpio'},
     {id: 801, description: 'Pocas nubes'},
-    {id: 802, description: 'Mayormente soleado'},
+    {id: 802, description: 'Nublado'},
     {id: 803, description: 'Nubes dispersas'},
     {id: 804, description: 'Pocas nubes'}
   ]

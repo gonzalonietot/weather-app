@@ -5,21 +5,39 @@
   >
     <v-list-item two-line>
       <v-list-item-content>
-        <v-list-item-subtitle style="font-size: 25px">Córdoba</v-list-item-subtitle>
+        <v-list-item-subtitle class="city">Córdoba</v-list-item-subtitle>
         <v-list-item-subtitle>{{getDay()}}, {{getHours()}}</v-list-item-subtitle>
         <v-list-item-subtitle>{{climateDescription}}</v-list-item-subtitle>
-        <div style="margin-top: 20px;">
+        <div class="weather">
           <div v-if="code === sunnyId">
-            <img style="float: left; height: 64px; width: 64px" alt="Soleado" src="../assets/soleado.png">
+            <img class="image" alt="Soleado" src="../assets/soleado.png">
           </div>
-          <div>
-            <img style="float: left; height: 64px; width: 64px" alt="Soleado" src="../assets/mayormente_soleado.png">
+          <div v-if="code === fewCloudsId">
+            <img class="image" alt="Pocas nubes" src="../assets/pocas_nubes.png">
           </div>
-          <div style="font-size: 60px; float: left">
+          <div v-if="code === scatteredCloudsId">
+            <img class="image" alt="Nublado" src="../assets/nublado.png">
+          </div>
+          <div v-if="checkPartlyCloudy">
+            <img class="image" alt="Nubes dispersas" src="../assets/nubes_dispersas.png">
+          </div>
+          <div v-if="checkShowerRain">
+            <img class="image" alt="Aguacero" src="../assets/aguacero.png">
+          </div>
+          <div v-if="checkRain">
+            <img class="image" alt="Lluvia" src="../assets/lluvia.png">
+          </div>
+          <div v-if="checkThunderstormId">
+            <img class="image" alt="Tormenta" src="../assets/tormenta.png">
+          </div>
+          <div v-if="checkSnowId">
+            <img class="image" alt="Nieve" src="../assets/tormenta.png">
+          </div>
+          <div class="temperature">
             <span v-if="showTemperatureInG">{{currentTempInG}}</span>
             <span v-else>{{currentTempInF}}</span>
           </div>
-          <div style="float: left;margin-top: 6px;">
+          <div class="button">
             <button @click="showWeatherInCelsius">
               <span>°C |</span>
             </button>
@@ -50,6 +68,7 @@
   import moment from 'moment'
   import axios from 'axios'
   import codesWeather from '../data/weathersCodes'
+  import _ from 'lodash'
   export default {
     name: 'Weather',
     data () {
@@ -68,7 +87,14 @@
         textError: 'Algo ha salido mal',
         code: null,
         sunnyId: 800,
-        fewCloudsId: 801
+        fewCloudsId: 801,
+        scatteredCloudsId: 802,
+        brokenCloudsId: [803, 804],
+        showerRainId: [300, 301, 302, 310, 311, 312, 313, 314, 321, 520, 521, 522, 531],
+        rainId: _.range(500, 505),
+        thunderstormId: _.range(200, 233),
+        snowId: _.range(600, 623)
+
       }
     },
     computed: {
@@ -80,6 +106,21 @@
       },
       climateDescription () {
         return this.description
+      },
+      checkPartlyCloudy () {
+        return this.brokenCloudsId.find(p => p === this.code)
+      },
+      checkShowerRain () {
+        return this.showerRainId.find(p => p === this.code)
+      },
+      checkRain () {
+        return this.rainId.find(p => p === this.code)
+      },
+      checkThunderstormId () {
+        return this.thunderstormId.find(p => p === this.code)
+      },
+      checkSnowId () {
+        return this.snowId.find(p => p === this.code)
       }
     },
     mounted () {
@@ -101,7 +142,6 @@
           const codeId = response.data.current.weather[0].id,
             climateDescription = codesWeather.find(p => p.id === codeId)
           this.code = climateDescription.id
-          console.log(this.code, 'code')
           this.description = climateDescription.description
         } catch (e) {
           this.error = true
@@ -119,5 +159,23 @@
 </script>
 
 <style scoped>
-
+  .city {
+    font-size: 25px
+  }
+  .image {
+    float: left;
+    height: 64px;
+    width: 64px
+  }
+  .weather {
+    margin-top: 20px;
+  }
+  .temperature {
+    font-size: 60px;
+    float: left
+  }
+  .button {
+    float: left;
+    margin-top: 6px;
+  }
 </style>
