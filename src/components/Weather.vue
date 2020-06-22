@@ -13,7 +13,7 @@
             <img style="float: left; height: 64px; width: 64px" alt="Soleado" src="../assets/soleado.png">
           </div>
           <div>
-            <img style="float: left; height: 64px; width: 64px" alt="Soleado" src="../assets/nublado.png">
+            <img style="float: left; height: 64px; width: 64px" alt="Soleado" src="../assets/mayormente_soleado.png">
           </div>
           <div style="font-size: 60px; float: left">
             <span v-if="showTemperatureInG">{{currentTempInG}}</span>
