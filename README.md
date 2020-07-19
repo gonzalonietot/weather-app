@@ -1,7 +1,4 @@
 # Weather
-[![Twitter Follow](https://img.shields.io/twitter/follow/maktub82.svg?style=social&label=Follow)](https://twitter.com/gonzalonieto11)
-![npm](https://img.shields.io/npm/dw/localeval.svg?style=flat-square)
-
 
 Current weather in Córdoba, Argentina
 
@@ -33,3 +30,5 @@ Run:
 ```
 npm run start
 ```
+[![Twitter Follow](https://img.shields.io/twitter/follow/maktub82.svg?style=social&label=Follow)](https://twitter.com/gonzalonieto11)
+![npm](https://img.shields.io/npm/dw/localeval.svg?style=flat-square)
