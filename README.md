@@ -1,5 +1,8 @@
 # Weather
 
+[![Twitter Follow](https://img.shields.io/twitter/follow/maktub82.svg?style=social&label=Follow)](https://twitter.com/gonzalonietot)
+
+
 Current weather in Córdoba, Argentina
 
 Tech stack:
@@ -30,4 +33,3 @@ Run:
 ```
 npm run start
 ```
-[![Twitter Follow](https://img.shields.io/twitter/follow/maktub82.svg?style=social&label=Follow)](https://twitter.com/gonzalonietot)
