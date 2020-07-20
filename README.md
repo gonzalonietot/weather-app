@@ -15,6 +15,7 @@ Tech stack:
 * Vue-router
 * Axios
 
+Climate API: https://api.openweathermap.org/data/2.5/onecall?lat=-31.41&lon=-64.18&appid=a7bcfe9957ce3840f5e0a1fa1a0eb730
 
 Screen: 
 
