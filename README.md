@@ -1,7 +1,7 @@
 # Weather
 
 [![Twitter Follow](https://img.shields.io/twitter/follow/maktub82.svg?style=social&label=Follow)](https://twitter.com/gonzalonietot)
-https://img.shields.io/github/followers/gnieto11?label=1&style=social
+[![GIT HUB FOLOOW](]https://img.shields.io/github/followers/gnieto11?label=1&style=social)
 
 
 Current weather in Córdoba, Argentina
